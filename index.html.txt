@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Website</title>
+</head>
+<body>
+    <h1>Welcome to My Website!</h1>
+    <p>This is a simple website hosted on GitHub Pages.</p>
+    <img src="screenshot.jpg" alt="Screenshot" width="400">
+    <p>Visitor Count: <span id="visitorCount">0</span></p>
+
+    <script>
+        // JavaScript code to update visitor count
+        document.addEventListener('DOMContentLoaded', function() {
+            var countSpan = document.getElementById('visitorCount');
+            if (localStorage.getItem('visits')) {
+                countSpan.textContent = localStorage.getItem('visits');
+            } else {
+                countSpan.textContent = '0';
+            }
+            var visits = parseInt(localStorage.getItem('visits')) || 0;
+            visits++;
+            localStorage.setItem('visits', visits);
+            countSpan.textContent = visits;
+        });
+    </script>
+</body>
+</html>
